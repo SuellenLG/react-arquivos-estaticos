@@ -50,3 +50,33 @@ export default function Itens(props: Props) {
         </div>
     )
 }
+
+
+/*
+1- outra forma de fazer:
+
+const ordenarPropriedadeCrescente = (
+    lista: typeof cardapio,
+    propriedade: ‘size’ | ‘serving’ | ‘price’   
+  ) => {
+    return lista.sort((a, b) => (a[propriedade] > b[propriedade] ? 1 : -1));
+  };    
+
+const ordenar = (novaLista: typeof cardapio) => {
+        switch (ordenador) {
+        case 'porcao':
+            return ordenarPropriedadeCrescente(novaLista, 'size');
+        case 'qtd_pessoas':
+            return ordenarPropriedadeCrescente(novaLista, 'serving');
+        case 'preco':
+            return ordenarPropriedadeCrescente(novaLista, 'price');
+        default:
+            return novaLista;
+        }
+    };
+
+
+2- Pick pega proprieda especifica
+   propriedade: ‘size’ | ‘serving’ | ‘price’   ==== propriedade: keyof Pick<typeof cardapio[0], 'size' | 'serving' | 'price'>
+
+*/
