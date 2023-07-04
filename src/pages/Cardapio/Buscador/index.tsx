@@ -17,7 +17,7 @@ export default function Buscador({ busca, setBusca }: Props) {
       />
       <CgSearch
         size={20}
-        color="#e34C4D5E"
+        color="#4C4D5E"
       />
     </div>
   );

@@ -22,7 +22,6 @@ export default function Menu() {
             <Link to={rota.to}>
               {rota.label}
             </Link>
-
           </li>
         ))}
       </ul>
