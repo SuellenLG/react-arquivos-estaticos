@@ -2,6 +2,7 @@ import cardapio from 'data/cardapio.json';
 import Item from './Item';
 import styles from './Itens.module.scss';
 import { useEffect, useState } from 'react';
+import { Cardapio } from 'types/Prato';
 
 interface Props {
     busca: string,
@@ -23,7 +24,7 @@ export default function Itens(props: Props) {
     return true;
   }
 
-  function ordenar(novaLista: typeof cardapio) {
+  function ordenar(novaLista:  Cardapio) {
     switch (ordenador) {
     case 'porcao':
       return novaLista.sort((a, b) => a.size > b.size ? 1 : -1);
@@ -55,13 +56,13 @@ export default function Itens(props: Props) {
 1- outra forma de fazer:
 
 const ordenarPropriedadeCrescente = (
-    lista: typeof cardapio,
+    lista: Cradapio,
     propriedade: ‘size’ | ‘serving’ | ‘price’   
   ) => {
     return lista.sort((a, b) => (a[propriedade] > b[propriedade] ? 1 : -1));
   };    
 
-const ordenar = (novaLista: typeof cardapio) => {
+const ordenar = (novaLista: Cardapio) => {
         switch (ordenador) {
         case 'porcao':
             return ordenarPropriedadeCrescente(novaLista, 'size');
@@ -76,6 +77,6 @@ const ordenar = (novaLista: typeof cardapio) => {
 
 
 2- Pick pega proprieda especifica
-   propriedade: ‘size’ | ‘serving’ | ‘price’   ==== propriedade: keyof Pick<typeof cardapio[0], 'size' | 'serving' | 'price'>
+   propriedade: ‘size’ | ‘serving’ | ‘price’   ==== propriedade: keyof Pick<Prato, 'size' | 'serving' | 'price'>
 
 */
